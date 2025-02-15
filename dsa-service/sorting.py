@@ -20,6 +20,57 @@ class sorting:
                 print(arr)
 
         return arr
+    
+    def merge_sort(self, arr: List[int]) -> List[int]:
+
+        return self.merge_sort_helper(arr, 0, len(arr)-1)
+        
+        
+
+    def merge_sort_helper(self, arr: List[int], s: int, e: int) -> List[int]:
+
+        if e - s + 1 <=1:
+            return arr
+        
+        m = (e + s) // 2
+
+        self.merge_sort_helper(arr, s, m)
+        self.merge_sort_helper(arr, m+1, e)
+
+        self.merge(arr, s, m, e)
+        
+        return arr
+    
+    def merge(self, arr: List[int], s: int, m: int, e: int):
+
+        L = arr[s:m+1]
+        R = arr[m+1:e+1]
+
+        i = 0 # L index
+        j = 0 # R index
+        k = s # arr staring index
+
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+        
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+        
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+            
+
+
 
 # if __name__ == "__main__":
 #     print("main from Sorting")
