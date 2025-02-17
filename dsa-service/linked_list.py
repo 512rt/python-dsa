@@ -14,8 +14,8 @@ class linked_list:
 
     def load_run_ll(self):
         # Set up linked list - load data
-        # nodes = [1,2,3,4,5,6]
-        # print(f"src -> {nodes}")
+        nodes = [1,2,3,4,5,6]
+        print(f"src -> {nodes}")
 
         # dummy = ListNode()
         # cur = dummy
@@ -30,13 +30,16 @@ class linked_list:
         # calling the code
     #Input: l1 = [2,4,3], l2 = [5,6,4]
 
-        node1 = [1,8,9]
-        node2 = [4,5,7]
-        print(f"l1 -> {node1}")
-        print(f"l2 -> {node2}")
-        head1 = self.load_ll(node1)
-        head2 = self.load_ll(node2)
-        result = self.addTwoNumbers(head1, head2)
+        # node1 = [1,8,9]
+        # node2 = [4,5,7]
+        # print(f"l1 -> {node1}")
+        # print(f"l2 -> {node2}")
+        # head1 = self.load_ll(node1)
+        # head2 = self.load_ll(node2)
+        # result = self.addTwoNumbers(head1, head2)
+
+        head = self.load_ll(nodes)
+        result = self.reverse_ll(head)
 
 
         # Printing the result
@@ -58,7 +61,23 @@ class linked_list:
         return dummy.next
         
 
-            
+    def reverse_ll(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None:
+            return head
+        
+        prev = None
+        cur = head
+
+
+        while cur:
+            temp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = temp
+        
+        return prev
+        
+    
 
 
     #region 92. Reverse Linked List II
@@ -148,3 +167,4 @@ class linked_list:
             l2 = l2.next if l2 else None
         
         return dummy.next
+
