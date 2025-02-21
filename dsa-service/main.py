@@ -1,5 +1,6 @@
 from sorting import sorting
 from linked_list import linked_list
+from search import Search
 
 def main():
     # Sorting
@@ -9,9 +10,13 @@ def main():
     # print("result -> ", sort.merge_sort(arr))
 
     # linked list 
-    ll = linked_list()
-    ll.load_run_ll()
+    # ll = linked_list()
+    # ll.load_run_ll()
 
+    searchit = Search()
+    searchit.load_run_search()
+
+    
 
 
 if __name__ == "__main__":
