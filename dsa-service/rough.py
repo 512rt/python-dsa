@@ -2,6 +2,7 @@
 
 
 
+from math import inf
 from typing import List
 
 
@@ -66,3 +67,31 @@ class Rough:
         print(window)
         return False        
 
+    # Maximum Subarray
+    # Solved 
+    # Given an array of integers nums, find the subarray with the largest sum and return the sum.
+    # A subarray is a contiguous non-empty sequence of elements within an array.
+
+    def max_subarry_sum(self):
+        nums = [1,2,-3,-2,4,5,1,-2]
+        maxSum = float(-inf)
+
+        for i in range(len(nums)):
+            curSum = 0
+            for j in range(i, len(nums)):
+                curSum += nums[j]
+                maxSum = max(maxSum, curSum)
+        
+        return maxSum
+    
+    def max_subarry_sum2(self):
+        #nums = [1,2,-3,-2,4,-5,-1,-2]
+        nums = [-1,-2,-3,-2,-4,-5,-1,-2]
+        maxSum = float(-inf)
+        curSum = float(-inf)
+        for n in nums:
+            curSum = max(curSum, 0)
+            curSum += n
+            maxSum = max(curSum, maxSum)
+        
+        return maxSum

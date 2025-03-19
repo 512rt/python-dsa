@@ -6,15 +6,17 @@ from rough import Rough
 
 def main():
 
-    nums = [1,2,3,4,5]
-    n = len(nums)
-    for i in range(n):
-        for j in range(i, i + n):
-            print (f"i -> {i} = {nums[i]}")
-            print (f"j -> {j} and j%n -> {j%n} => {nums[j%n]}")
+    # nums = [1,2,3,4,5]
+    # n = len(nums)
+    # for i in range(n):
+    #     for j in range(i, i + n):
+    #         print (f"i -> {i} = {nums[i]}")
+    #         print (f"j -> {j} and j%n -> {j%n} => {nums[j%n]}")
 
 
-    #test = Rough()
+    test = Rough()
+    res = test.max_subarry_sum2()
+    print(f"max subarray sum = {res}")
     ## val:bool = test.contains_duplicates()
     #val:bool = test.contains_dups2()
     #print(f" does it contain duplicates : {val}")
